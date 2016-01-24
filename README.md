@@ -3,7 +3,7 @@ INSTALL:
 
 #cleanDate
 
-Date cleansing and construction helper.  
+Date cleansing and construction helper for Node.js. Basically will try to avoid invalid date errors by doing its best to figure out various dates/delimiters etc that maybe passed in during data cleansing efforts or web forms that don't have validation. Not meant to be a lazy way to create dates, but a tool in helping with bad data
 
 ## Install
 
@@ -25,11 +25,30 @@ Note: Some countries have multiple formats - I did my best on identifying which 
 
 ### Examples
 
-Setting a global country code with setCountry() then passing in several dates to cleanDate().
+Simple examples - if you don't setCountry() or pass country into the call, it assumes US date is the goal.
+```javascript
+var cleanDate = require("cleandate");
 
+var dates = ["1-13-2003", "1-11-2003", "15-1-2013", "2014-1-16", "2014/1/17", "1 18 2017", "2017_1_19", "4-4-72", "13-14-12", "11-10-12", "47-15-3"];
+
+	cleanDate.cleanDate("15-1-2013");
+	//result is 1/15/2013
+
+ 	cleanDate.cleanDate("2017_1_19");
+	//result is 1/19/2017
+
+ 	cleanDate.cleanDate("2017_1_19", "GB");
+	//result is 19/1/2017
+
+	cleanDate.cleanDate("11-10-12");
+	//result is 11/10/2013
+});
+```
+
+Looping through several dates (like from a csv file, or other collection where date formats are inconsistent or unsure, by setting a global country code with setCountry() first then sending the dates through cleanDate.
 ```javascript
 var _ = require("lodash");
-var cleanDate = require("cleanDate");
+var cleanDate = require("cleandate");
 
 var dates = ["1-13-2003", "1-11-2003", "15-1-2013", "2014-1-16", "2014/1/17", "1 18 2017", "2017_1_19", "4-4-72", "13-14-12", "11-10-12", "47-15-3"];
 
@@ -44,7 +63,7 @@ Pass a country in per date.
 
 ```javascript
 var _ = require("lodash");
-var cleanDate = require("cleanDate");
+var cleanDate = require("cleandate");
 
 var dates = [{date: "1-13-2003", country: "BE"}, {date: "1-11-2003", country:"TW"}, {date: "1 18 2017", country: "US"}];
 
@@ -55,11 +74,11 @@ _.forEach(dates, function(foo) {
 ```
 
 
-## [More Documentation](https://github.com/raskawa/cleanDate/wiki)
+## [More Documentation](https://github.com/raskawa/cleandate/wiki)
 
 ## Features
 
-* Handle more date strings to help avoid "Invalid Date".  Specifically, dates with written out months.  Will need to get the country specific months figured out to do that.
+* Handle more date strings to help avoid "Invalid Date".
 * Looks up and tries to use country specific date formats when Country is passed in.
 * As a bonus, includes a basic country date data set with country specific date formats (and iso / friendly names).
 
