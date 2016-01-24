@@ -3,7 +3,7 @@ INSTALL:
 
 #cleanDate
 
-Date cleansing and construction helper for Node.js. Basically will try to avoid invalid date errors by doing its best to figure out various dates/delimiters etc that maybe passed in during data cleansing efforts or web forms that don't have validation. Not meant to be a lazy way to create dates, but a tool in helping with bad data
+Date cleansing and construction helper for Node.js. Basically will try to avoid invalid date errors by doing its best to figure out various dates/delimiters etc that maybe passed in during data cleansing efforts or web forms that don't have validation. Not meant to be a lazy way to create dates, but a tool in helping with bad data.
 
 ## Install
 
