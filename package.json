@@ -1,0 +1,35 @@
+{
+  "name": "cleandate",
+  "version": "1.0.0",
+  "description": "Date cleansing and construction helper.  Basically will try to avoid invalid date errors by doing its best to figure out various dates/delimiters etc that maybe passed in during data cleansing efforts or web forms that don't have validation.  Not meant to be a lazy way to create dates, but a tool in helping with bad data.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "lodash": "^4.0.0",
+    "moment": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/raskawa/cleandate.git"
+  },
+  "keywords": [
+    "Date",
+    "Utility",
+    "Date",
+    "Cleaning",
+    "International",
+    "Date"
+  ],
+  "author": "David Godwin <raskawa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raskawa/cleandate/issues"
+  },
+  "homepage": "https://github.com/raskawa/cleandate#readme"
+}
